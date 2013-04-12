@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT pageAction (results,interceptors,actions+)>
+<!ELEMENT interceptors (interceptor) >
+<!ELEMENT interceptor (#PCDATA)>
+<!ELEMENT results (resultType*)>
+<!ELEMENT resultType (#PCDATA)>
+<!ELEMENT actions (action+)>
+<!ELEMENT action (page+)>
+<!ELEMENT page (param*)>
+<!ELEMENT param (#PCDATA)>
+<!ATTLIST resultType name ID #REQUIRED>
+<!ATTLIST resultType class CDATA #REQUIRED>
+<!ATTLIST interceptor class CDATA #REQUIRED>
+<!ATTLIST actions name ID #REQUIRED>
+<!ATTLIST actions namespace CDATA #REQUIRED>
+<!ATTLIST action name CDATA #REQUIRED>
+<!ATTLIST action class CDATA #REQUIRED>
+<!ATTLIST page name CDATA #REQUIRED>
+<!ATTLIST page type CDATA #REQUIRED>
+<!ATTLIST param name CDATA #REQUIRED>

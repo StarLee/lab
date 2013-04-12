@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pageAction SYSTEM "action.dtd">
+<pageAction>
+	<results>
+		<resultType name="dispatcher" class="com.develop.actions.forward.DispatchResult"></resultType>
+		<resultType name="redirect" class="com.develop.actions.forward.RedirectResult"></resultType>
+		<resultType name="redirectAction" class="com.develop.actions.forward.ActionResult"></resultType>
+		<resultType name="json" class="com.develop.actions.forward.JSONResult"></resultType>
+	</results>
+	<interceptors>
+		<!-- 这个是最基本的过滤器 -->
+		<interceptor class="com.develop.actions.action.PreRequestInterceptor"></interceptor>
+		<interceptor class="com.develop.actions.action.DefaultInterceptor"></interceptor>
+		<!--还可以添加其它的过滤器 -->
+	</interceptors>
+	<!-- 测试一 -->
+	<actions name="test" namespace="/first">
+		<!--  请说明页面一的功能-->
+		<action class="com.develop.actions.test.Test" name="Index">
+			<page type="json" name="fail">
+				<param name="name">
+					list
+				</param>
+			</page>
+			<page type="dispatcher" name="ok">
+				<!-- 如果不用param的标签的话，直接文本默认就是location -->
+				<param name="location">/abc.jsp</param>
+			</page>
+		</action>
+		<action name="IndexPage">
+			<page>/abc.jsp</page>
+		</action>
+	</actions>
+	<!-- 测试二-->
+	<actions name="test1" namespace="/first1">
+		<!--  请说明页面二的功能-->
+		<action class="com.develop.actions.test.Test" name="Index1">
+			<page type="json" name="ok">
+				<param name="name">
+					list
+				</param>
+			</page>
+			<page type="dispatcher" name="fail">
+				<param name="location">/abc.jsp</param>
+			</page>
+		</action>
+	</actions>
+	<actions name="test1" namespace="/first1">
+		<!--  请说明页面二的功能-->
+		<action class="com.develop.actions.test.Test" name="Index2">
+			<page type="redirectAction" name="ok">
+				<param name="namespace">/first</param>
+				<param name="actionName">Index?id=${id}</param>
+			</page>
+		</action>
+	</actions>
+</pageAction>

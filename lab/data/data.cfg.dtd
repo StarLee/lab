@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--数据库配置相关的dtd文件-->
+<!ELEMENT data (properties,tables,mappers)>
+<!ELEMENT properties (property+)>
+<!ELEMENT tables (table*)>
+<!ELEMENT mappers (mapper*)>
+<!ELEMENT property (#PCDATA)>
+<!ELEMENT table (#PCDATA)>
+<!ELEMENT mapper (#PCDATA)>
+<!ATTLIST property name CDATA #REQUIRED>
+<!ATTLIST table url CDATA #REQUIRED>
+<!ATTLIST mapper url CDATA #REQUIRED>
+

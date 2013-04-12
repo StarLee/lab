@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "../mapper.dtd">
+<mapper namespace="com.develop.data.TestInterface" >
+	<select id="findAllCollege" resultType="com.develop.data.base.mapping.Ds_collegeBean">
+		select id,college_name as collegeName from Ds_college
+	</select>
+	<select id="findAllCollegePage" resultType="com.develop.data.base.mapping.Ds_collegeBean">
+		select id,college_name as collegeName from Ds_college
+	</select>
+	<select id="findBasic" resultType="com.develop.data.base.mapping.Ds_basicBean" parameterType="string">
+		select * from Ds_basic where ygbh='#{id}'
+	</select>
+	<update id="updateCollege" parameterType="com.develop.data.base.mapping.Ds_collegeBean">
+		update Ds_college set college_name='#{collegeName}' where id=#{id}
+	</update>
+	<insert id="insertNew" parameterType="com.develop.data.base.mapping.Ds_collegeBean">
+		insert into Ds_college(college_name,id) values('#{collegeName}',#{id})
+	</insert>
+	<delete id="deleteCollege" parameterType="com.develop.data.base.mapping.Ds_collegeBean">
+		delete from Ds_college where id=#{id}
+	</delete>
+</mapper>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- meta的class 的类名（不包括整个空间）作为唯一的标识，
+比如：from Ds_collegeBean就会生成 select id,college_name from Ds_college的sql,
+select a.P1,a.P2 from Ds_collegeBean as a,
+select count(*) from Ds_collegeBean,
+最后发现，我们用注解来解决这个问题可能还好点。
+ -->
+<meta  class="com.develop.data.base.mapping.Ds_collegeBean" table="Ds_college">
+	<id name="id" column="id" type="int"></id>
+	<property name="collegeName" column="college_name" type="string" ></property>
+</meta>
